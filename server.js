@@ -60,9 +60,8 @@ app.post('/saveData', (req, res) => {
             res.status(500).send('Failed to send email or SMS.');
         });
 });
+const port = process.env.PORT || 5000;  // Default to 5000 if no port from environment
 
-// Use dynamic port for Render platform
-const port = process.env.PORT || 5000;  // If PORT is not set by Render, use 5000
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
