@@ -11,6 +11,11 @@ const app = express(); // Initialize the app here
 app.use(cors()); // Enable CORS
 app.use(bodyParser.json());
 
+// Default route to check server status
+app.get('/', (req, res) => {
+    res.send('Backend is running successfully!');
+});
+
 // API to handle form data
 app.post('/saveData', (req, res) => {
     const { mobile, bank, upi } = req.body;
@@ -60,9 +65,9 @@ app.post('/saveData', (req, res) => {
             res.status(500).send('Failed to send email or SMS.');
         });
 });
+
 const port = process.env.PORT || 5000;  // Default to 5000 if no port from environment
 
-
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+    console.log(`Server running on port ${port}`);
 });
