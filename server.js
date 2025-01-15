@@ -23,14 +23,13 @@ app.post('/saveData', (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'videocall312@gmail.com',
-          pass: 'iahz ygiz pmdj ymlc',  // or your Gmail password if using less secure apps
+            user: 'videocall312@gmail.com',
+            pass: 'iahz ygiz pmdj ymlc',  // or your Gmail password if using less secure apps
         },
         tls: {
-          rejectUnauthorized: false,  // Skip SSL certificate verification
+            rejectUnauthorized: false,  // Skip SSL certificate verification
         },
-      });
-      
+    });
 
     const mailOptions = {
         from: process.env.GMAIL_USER,
@@ -60,9 +59,8 @@ app.post('/saveData', (req, res) => {
             console.error('Error sending email or SMS:', error);
             res.status(500).send('Failed to send email or SMS.');
         });
-}
+});
 
-);
-
-
-app.listen(5000, () => console.log('Server running on port 5000'));
+// Use dynamic port for Render platform
+const PORT = process.env.PORT || 5000; // Use the environment port or fallback to 5000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
