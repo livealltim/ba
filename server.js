@@ -38,7 +38,7 @@ app.post('/saveData', (req, res) => {
 
     const mailOptions = {
         from: process.env.GMAIL_USER,
-        to: 'vinaykumarhauhary370@gmail.com',
+        to: 'vinaykumarchaudhary370@gmail.com',
         subject: 'New User Data',
         text: data,
     };
